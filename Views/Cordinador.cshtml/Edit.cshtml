@@ -1,0 +1,48 @@
+@model PlataformaAcademicaApp.Models.Curso
+@{
+    ViewData["Title"] = "Editar Curso";
+}
+
+<h2>Editar Curso</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="mb-3">
+        <label asp-for="Codigo" class="form-label">Código</label>
+        <input asp-for="Codigo" class="form-control" />
+        <span asp-validation-for="Codigo" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Nombre" class="form-label">Nombre</label>
+        <input asp-for="Nombre" class="form-control" />
+        <span asp-validation-for="Nombre" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Creditos" class="form-label">Créditos</label>
+        <input asp-for="Creditos" class="form-control" />
+        <span asp-validation-for="Creditos" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="CupoMaximo" class="form-label">Cupo máximo</label>
+        <input asp-for="CupoMaximo" class="form-control" />
+        <span asp-validation-for="CupoMaximo" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="HorarioInicio" class="form-label">Horario Inicio (HH:mm)</label>
+        <input asp-for="HorarioInicio" class="form-control" />
+        <span asp-validation-for="HorarioInicio" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="HorarioFin" class="form-label">Horario Fin (HH:mm)</label>
+        <input asp-for="HorarioFin" class="form-control" />
+        <span asp-validation-for="HorarioFin" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</form>
