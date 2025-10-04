@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PlataformaAcademicaApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+abcd04d947dc6a60210bb31ab617222744932b7f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+af30f184bdad923c0819ec7c18cb85689e9753ab")]
 [assembly: System.Reflection.AssemblyProductAttribute("PlataformaAcademicaApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PlataformaAcademicaApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
