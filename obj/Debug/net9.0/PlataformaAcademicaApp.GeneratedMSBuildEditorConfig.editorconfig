@@ -32,6 +32,22 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/crist/PlataformaAcademica/PlataformaAcademicaApp/Views/Cordinador.cshtml/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29yZGluYWRvci5jc2h0bWxcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/crist/PlataformaAcademica/PlataformaAcademicaApp/Views/Cordinador.cshtml/Cursos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29yZGluYWRvci5jc2h0bWxcQ3Vyc29zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/crist/PlataformaAcademica/PlataformaAcademicaApp/Views/Cordinador.cshtml/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29yZGluYWRvci5jc2h0bWxcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/crist/PlataformaAcademica/PlataformaAcademicaApp/Views/Cordinador.cshtml/Matriculas.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29yZGluYWRvci5jc2h0bWxcTWF0cmljdWxhcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/crist/PlataformaAcademica/PlataformaAcademicaApp/Views/Cursos/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3Vyc29zXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
