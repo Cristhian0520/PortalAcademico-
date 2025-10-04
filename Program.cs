@@ -4,29 +4,42 @@ using PlataformaAcademicaApp.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// DB - SQLite por defecto (development)
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") 
-                       ?? "Data Source=plataformaacademico.db";
+// DB
+var conn = builder.Configuration.GetConnectionString("DefaultConnection") ?? "Data Source=plataformaacademico.db";
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlite(connectionString));
+    options.UseSqlite(conn));
 
 // Identity + Roles
 builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 {
-    options.SignIn.RequireConfirmedAccount = false; // cambiar a true si quieres confirmación
+    options.SignIn.RequireConfirmedAccount = false;
 })
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
-// HttpContextAccessor para usar session en layouts, etc.
-builder.Services.AddHttpContextAccessor();
+// Redis (IDistributedCache)
+var redisConn = builder.Configuration["Redis:ConnectionString"] 
+                ?? builder.Configuration["Redis__ConnectionString"] 
+                ?? "localhost:6379";
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+    options.Configuration = redisConn;
+});
 
-// Controladores y vistas
+// Session (usa Redis si AddStackExchangeRedisCache está configurado)
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
-// Aplicar migraciones y seed
+// Aplicar migraciones + seed
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
@@ -35,23 +48,22 @@ using (var scope = app.Services.CreateScope())
     await SeedData.EnsureSeedDataAsync(services);
 }
 
-// Configuración del pipeline
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Home/Error");
-    app.UseHsts();
+if (!app.Environment.IsDevelopment()) 
+{ 
+    app.UseExceptionHandler("/Home/Error"); 
+    app.UseHsts(); 
 }
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 
-app.UseAuthentication(); // Importante para Identity
+app.UseSession(); // importante: session antes de auth si usas session-based auth
+app.UseAuthentication();
 app.UseAuthorization();
 
-// Rutas
 app.MapControllerRoute(
-    name: "default",
+    name: "default", 
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
 
